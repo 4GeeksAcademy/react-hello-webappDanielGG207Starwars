@@ -53,7 +53,7 @@ export const Home = () => {
 				  <div className="d-flex" >
 				  <button type="button" className="btn btn-primary me-auto" onClick={() => {navigate("/section/"+ object.uid)}}>More Info</button>
 
-				  {store.favorites.includes(object)?(
+				  {store.favorites.some(fav => fav.name == object.name)?(
 					
 					
 					 <button type="button" className="btn btn-outline-warning ms-4" onClick={()=> {
@@ -124,7 +124,7 @@ export const Home = () => {
 				  <button type="button" className="btn btn-primary me-auto" 
 				  onClick={() => {navigate("/section/"+ object)}}>More Info</button>
 				  
-				  {store.favorites.includes(object)?(
+				  {store.favorites.some(fav => fav.name == object.name)?(
 					
 					
 					<button type="button" className="btn btn-outline-warning ms-4" onClick={()=>{
@@ -139,7 +139,7 @@ export const Home = () => {
 
 				   <button type="button" className="btn btn-outline-warning ms-4" data-id = {object.uid} 
 
-				 
+				    
 				 
 					   onClick={(event)=> {
 	 
@@ -172,7 +172,7 @@ export const Home = () => {
 		   </div>
 			
 
-
+        {console.log("This Should Repeat")}
 
 
 
