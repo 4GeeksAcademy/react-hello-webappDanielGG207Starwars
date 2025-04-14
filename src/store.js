@@ -1,3 +1,5 @@
+import { object } from "prop-types"
+
 export const initialStore=()=>{
   return{
     message: null,
@@ -12,7 +14,11 @@ export const initialStore=()=>{
         title: "Do my homework",
         background: null,
       }
-    ]
+
+    ],
+    favorites: []
+
+
   }
 }
 
@@ -25,7 +31,22 @@ export default function storeReducer(store, action = {}) {
       return {
         ...store,
         todos: store.todos.map((todo) => (todo.id === id ? { ...todo, background: color } : todo))
-      };
+      }
+
+      case "add_favorites":
+
+      return {
+        ...store,
+        favorites:[...store.favorites, action.payload]
+      }
+
+      case "remove_favorite":
+        return {
+          ...store,
+          favorites: store.favorites.filter((object)=> object !== action.payload )
+        }
+
+
     default:
       throw Error('Unknown action.');
   }    
